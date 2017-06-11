@@ -1,38 +1,39 @@
-# dokku-rails-omniauth-bootstrap-react
+# recommendboardgames-react-rails
 
 # Installation
 
-## Create your app
+## Create the app
 
-On your Dokku server:
+On the Dokku server:
 
-    dokku app:create dokku-rails-omniauth-bootstrap-react
+    dokku apps:create recommendboardgames-react-rails
     sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git
-    dokku postgres:create dokku-rails-omniauth-bootstrap-react-database
-    dokku postgres:link dokku-rails-omniauth-bootstrap-react-database dokku-rails-omniauth-bootstrap-react
+    dokku postgres:create recommendboardgames-react-rails-database
+    dokku postgres:link recommendboardgames-react-rails-database recommendboardgames-react-rails
 
 ## Push to Dokku
 
-On you local computer:
+On your local computer:
 
-    git clone git@github.com:curious-attempt-bunny/dokku-rails-omniauth-bootstrap-react.git
-    cd dokku-rails-omniauth-bootstrap-react
-    git remote add dokku dokku@yourhostontheinternet:dokku-rails-omniauth-bootstrap-react
+    git clone git@github.com:curious-attempt-bunny/recommendboardgames-react-rails.git
+    cd recommendboardgames-react-rails
+    git remote add dokku dokku@yourhostontheinternet:recommendboardgames-react-rails
     git push dokku master
 
 ## Add HTTPS to your app
 
-On your Dokku server:
+On the Dokku server:
 
     sudo dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
-    dokku config:set --no-restart dokku-rails-omniauth-bootstrap-react DOKKU_LETSENCRYPT_EMAIL=yourregistrationemail.com
+    dokku config:set --no-restart recommendboardgames-react-rails DOKKU_LETSENCRYPT_EMAIL=yourregistrationemail.com
+    dokku letsencrypt recommendboardgames-react-rails
     dokku letsencrypt:cron-job --add    
 
-## Add Google OAuth2 config to your add
+## Add Google OAuth2 config to the app
 
-On your Dokku server:
+On the Dokku server:
     
-    dokku config:set dokku-rails-omniauth-bootstrap-react GOOGLE_CLIENT_ID=xxx GOOGLE_CLIENT_SECRET=yyy    
+    dokku config:set recommendboardgames-react-rails GOOGLE_CLIENT_ID=xxx GOOGLE_CLIENT_SECRET=yyy    
 
 # Running locally
 
@@ -43,15 +44,10 @@ On your Dokku server:
 
 ## Add New Relic monitoring
 
-    dokku config:set dokku-rails-omniauth-bootstrap-react NEW_RELIC_LICENSE_KEY=xxx NEW_RELIC_APP_NAME=yyy
+On the Dokku server:
+
+    dokku config:set recommendboardgames-react-rails NEW_RELIC_LICENSE_KEY=xxx NEW_RELIC_APP_NAME=yyy
 
 # Resources
 
-This was pieced together from:
-
-* http://dokku.viewdocs.io/dokku/deployment/application-deployment/
-* https://richonrails.com/articles/google-authentication-in-ruby-on-rails
-* http://www.rubyfleebie.com/how-to-use-dokku-on-digitalocean-and-deploy-rails-applications-like-a-pro/
-* https://hackhands.com/react-rails-tutorial/
-* https://github.com/reactjs/react-rails
-* https://github.com/seyhunak/twitter-bootstrap-rails
+This project is built on top of https://github.com/curious-attempt-bunny/dokku-rails-omniauth-bootstrap-react.
