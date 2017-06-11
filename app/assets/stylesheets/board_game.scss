@@ -1,5 +1,5 @@
 .app {
-    background-color: #000;
+    background-color: #141414;
 }
 
 .navbar {
@@ -21,7 +21,7 @@
 .separator {
     height: 12em;
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0) 0%, rgb(0,0,0) 100%);
+    background-image: linear-gradient(rgba(0,0,0,0) 0%, rgb(20,20,20) 100%);
     position: relative;
     top: -13em;
 }
@@ -29,6 +29,12 @@
 .listing {
     position: relative;
     top: -17em;
+    width: 100%;
+}
+
+.category {
+    padding-left: 70px;
+    color: #999;
 }
 
 .boardGame {
