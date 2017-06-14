@@ -1,0 +1,1 @@
+File.write('data/susd.html', `curl https://www.shutupandsitdown.com/games-page/`)

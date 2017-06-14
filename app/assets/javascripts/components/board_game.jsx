@@ -1,17 +1,24 @@
 class BoardGame extends React.Component {
-  render() {
-    var url = this.props.thumbnail
-    var pos = url.indexOf('_t.')
-    if (pos != -1) {
-        url = url.substring(0, pos)+url.substring(pos+'_t'.length)
+    constructor(props) {
+        super(props)
+        this.state = { image: props.imageFallback }
     }
 
-    return (
-        <div className="boardGame" style={{backgroundImage: "url('"+url+"')"}}>
-            &nbsp;
-        </div>
-    )
-  }
+    componentWillMount() {
+        var image = document.createElement('img')
+        image.src = this.props.image
+        image.onload = () => {
+            this.setState({image: this.props.image})
+        }
+    }
+    
+    render() {
+        return (
+            <div className="boardGame" style={{backgroundImage: "url('"+this.state.image+"')"}}>
+                &nbsp;
+            </div>
+        )
+    }
 }
 
 window.BoardGame = BoardGame

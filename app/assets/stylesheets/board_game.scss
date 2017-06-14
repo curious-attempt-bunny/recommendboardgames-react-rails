@@ -37,6 +37,11 @@
     color: #999;
 }
 
+.category div {
+    display: flex;
+    flex-shrink: 0;
+}
+
 .boardGame {
     width: 260px;
     height: 150px;

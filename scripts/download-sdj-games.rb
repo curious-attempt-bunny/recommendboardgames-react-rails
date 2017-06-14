@@ -1,0 +1,1 @@
+File.write('data/sdj.html', `curl https://en.wikipedia.org/wiki/Spiel_des_Jahres#Previous_winners`)
