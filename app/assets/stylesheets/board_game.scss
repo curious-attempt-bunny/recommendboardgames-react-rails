@@ -35,6 +35,7 @@
 .category {
     padding-left: 130px;
     color: #999;
+    overflow-x: hidden;
 }
 
 .category .contents {
@@ -64,6 +65,20 @@
     }
     &:hover ~ .boardGame {
         transform: translate3d(260px, 0, 0);
+    }
+}
+
+.boardGame .detail {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0.5em 1em 0.5em 1em;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.9) 100%);
+
+    transition: 350ms opacity;
+    &:hover {
+        opacity: 1;
     }
 }
 

@@ -18,7 +18,9 @@ class BoardGame extends React.Component {
     render() {
         return (
             <div className="boardGame" style={{backgroundImage: "url('"+this.state.image+"')"}}>
-                &nbsp;
+                <div className="detail">
+                    <span>{this.props.name}</span>
+                </div>
             </div>
         )
     }
