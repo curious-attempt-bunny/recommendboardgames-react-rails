@@ -33,13 +33,17 @@
 }
 
 .category {
-    padding-left: 70px;
+    padding-left: 130px;
     color: #999;
 }
 
-.category div {
+.category .contents {
     display: flex;
-    flex-shrink: 0;
+
+    transition: all 350ms cubic-bezier(.86,0,.07,1);
+    &:hover {
+        transform: translate3d(-130px, 0, 0);
+    }
 }
 
 .boardGame {
@@ -50,7 +54,18 @@
     background-position-x: center;
     background-position-y: top;
     display: inline-flex;
+    flex-shrink: 0;
     margin-right: 5px;
     margin-bottom: 15px;
+
+    transition: all 350ms cubic-bezier(.86,0,.07,1);
+    &:hover {
+        transform: scale(2) translate3d(65px, 0, 0);
+    }
+    &:hover ~ .boardGame {
+        transform: translate3d(260px, 0, 0);
+    }
 }
+
+
 

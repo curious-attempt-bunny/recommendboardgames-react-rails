@@ -5,11 +5,14 @@ class BoardGame extends React.Component {
     }
 
     componentWillMount() {
-        var image = document.createElement('img')
-        image.src = this.props.image
-        image.onload = () => {
-            this.setState({image: this.props.image})
-        }
+        // ensure larger image versions are loaded last
+        setTimeout(() => {
+            var image = document.createElement('img')
+            image.src = this.props.image
+            image.onload = () => {
+                this.setState({image: this.props.image})
+            }
+        }, 10)
     }
     
     render() {
