@@ -27,20 +27,22 @@
 }
 
 .listing {
+    padding-top: 1em;
     position: relative;
-    top: -17em;
+    top: -18em;
     width: 100%;
+    overflow-x: hidden;
 }
 
 .category {
     padding-left: 130px;
     color: #999;
-    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .category .contents {
     display: flex;
-
+    
     transition: all 350ms cubic-bezier(.86,0,.07,1);
     &:hover {
         transform: translate3d(-130px, 0, 0);
