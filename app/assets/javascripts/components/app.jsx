@@ -18,6 +18,8 @@ class App extends React.Component {
     }
 
     render() {
+        var titleGame = window.games[window.categories[Object.getOwnPropertyNames(window.categories)[1]][0]]
+
         return (
             <div>
 
@@ -38,22 +40,22 @@ class App extends React.Component {
       </div>
     </nav>
 
-    <TitleGame gameId={40834} name={'Dominion: Intrigue'} image={'//cf.geekdo-images.com/images/pic460011.jpg'}/>
+    <TitleGame gameId={titleGame.id} name={titleGame.name} image={titleGame.image_large}/>
 
     <div className="separator"/>
 
     <div className="listing">
-      { Object.getOwnPropertyNames(window.categories).map( category => this.renderCategory(category)) }
+      { Object.getOwnPropertyNames(window.categories).map( category => this.renderCategory(category, titleGame)) }
     </div> 
 
             </div>
         )
     }
 
-    renderCategory(category) {
+    renderCategory(category, titleGame) {
         return (
             <Category key={category} title={category}>
-                { window.categories[category].slice(0,12).map( gameId => this.renderGame(window.games[gameId])) }
+                { window.categories[category].slice(0,12).map( gameId => gameId == titleGame.id ? '' : this.renderGame(window.games[gameId])) }
             </Category>
         )
     }
