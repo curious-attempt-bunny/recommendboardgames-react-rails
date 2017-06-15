@@ -2,7 +2,7 @@ class App extends React.Component {
     renderAuthButton() {
         const { current_user } = this.props
 
-        if (current_user) {
+        if (current_user.loggedIn) {
             return (
                 <form className="navbar-form navbar-right" method="get" action="/signout">
                     <button type="submit" className="btn btn-default">Sign out</button>

@@ -1,3 +1,5 @@
+require 'SecureRandom'
+
 class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
@@ -9,5 +11,9 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
     end
+  end
+
+  def self.generate_temporary
+    User.create!(name: 'Guest', email: SecureRandom.hex(30))
   end
 end
