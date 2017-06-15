@@ -32,11 +32,13 @@
     padding-right: 0;
 }
 
-.rate {
+.rate:not(:checked) {
     /* Click + hover color */
     input:checked ~ label, /* color current and previous stars on checked */
     label:hover, label:hover ~ label { color: yellow;  } /* color previous stars on hover */
+}
 
+.rate {
     /* Hover highlights */
     input:checked + label:hover, input:checked ~ label:hover, /* highlight current and previous stars */
     input:checked ~ label:hover ~ label, /* highlight previous selected stars for new rating */
