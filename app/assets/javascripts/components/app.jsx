@@ -32,7 +32,7 @@ class App extends React.Component {
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href="/">Recommend Board Games</a>
+          <a className="navbar-brand" href="/"><img src="/assets/logo.png" style={{display: 'inline-block'}}/>&nbsp;Recommend Board Games</a>
         </div>
         <div id="navbar" className="navbar-collapse collapse">
           { this.renderAuthButton() }
