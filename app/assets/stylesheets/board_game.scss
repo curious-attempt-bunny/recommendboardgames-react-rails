@@ -13,7 +13,6 @@
     background-size: cover;
     background-position-x: center;
     background-position-y: 10%;
-    display: inline-flex;
     margin-right: 5px;
     margin-bottom: 15px;
 }
@@ -84,5 +83,9 @@
     }
 }
 
+.boardGame .rate {
+    position: absolute;
+    bottom: 0.25em;
+}
 
 

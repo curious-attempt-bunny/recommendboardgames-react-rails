@@ -20,6 +20,8 @@ class BoardGame extends React.Component {
             <div className="boardGame" style={{backgroundImage: "url('"+this.state.image+"')"}}>
                 <div className="detail">
                     <span>{this.props.name}</span>
+                    <br/>
+                    <Rating/>
                 </div>
             </div>
         )
