@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611020124) do
+ActiveRecord::Schema.define(version: 20170615173405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "user_game_ratings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "game_id"
+    t.decimal  "rating",     precision: 1, scale: 1
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  add_index "user_game_ratings", ["game_id"], name: "index_user_game_ratings_on_game_id", using: :btree
+  add_index "user_game_ratings", ["rating"], name: "index_user_game_ratings_on_rating", using: :btree
+  add_index "user_game_ratings", ["user_id"], name: "index_user_game_ratings_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"
