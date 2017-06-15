@@ -33,7 +33,7 @@ On the Dokku server:
 
 On the Dokku server:
     
-    dokku config:set recommendboardgames-react-rails FULL_HOST=https://yourhost.com GOOGLE_CLIENT_ID=xxx GOOGLE_CLIENT_SECRET=yyy    
+    dokku config:set recommendboardgames-react-rails RAILS_SESSION_SECRET=zzz FULL_HOST=https://yourhost.com GOOGLE_CLIENT_ID=xxx GOOGLE_CLIENT_SECRET=yyy    
 
 # Running locally
 
