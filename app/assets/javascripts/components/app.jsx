@@ -63,6 +63,7 @@ class App extends React.Component {
     renderGame(game) {
         return (
             <BoardGame
+                key={game.id}
                 gameId={game.id}
                 name={game.name}
                 image={game.image_medium}
