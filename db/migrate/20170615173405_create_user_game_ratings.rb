@@ -3,7 +3,7 @@ class CreateUserGameRatings < ActiveRecord::Migration
     create_table :user_game_ratings do |t|
       t.integer :user_id
       t.integer :game_id
-      t.decimal :rating, precision: 1, scale: 1
+      t.decimal :rating, precision: 2, scale: 1
 
       t.timestamps null: false
       

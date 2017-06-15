@@ -21,7 +21,7 @@ class BoardGame extends React.Component {
                 <div className="detail">
                     <span>{this.props.name}</span>
                     <br/>
-                    <Rating/>
+                    <Rating gameId={this.props.gameId}/>
                 </div>
             </div>
         )
