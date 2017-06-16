@@ -2,8 +2,10 @@ class App extends React.Component {
     constructor(props) {
         super(props)
 
+        this.ratings = this.props.ratings
+
         this.state = {
-            ratingCount: 0
+            ratingCount: Object.getOwnPropertyNames(this.ratings).length
         }
     }
 
@@ -75,6 +77,7 @@ class App extends React.Component {
                 key={game.id}
                 gameId={game.id}
                 name={game.name}
+                rating={this.ratings[game.id]}
                 image={game.image_medium}
                 imageFallback={game.image_small}
                 onNewRating={() => this.onNewRating()}

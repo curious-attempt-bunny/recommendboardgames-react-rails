@@ -8,7 +8,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="app">
-    <%= react_component("App", {current_user: {email: current_user.email, loggedIn: !!current_user.oauth_token}}) %>
+    <%= react_component("App", {
+                                  current_user: {email: current_user.email, loggedIn: !!current_user.oauth_token},
+                                  ratings: Hash[(@ratings.map { |r| [r.game_id, r.rating.to_f] })]
+                              }) %>
     <div>
     <%= yield %>
     </div>

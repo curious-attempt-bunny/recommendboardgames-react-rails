@@ -21,7 +21,7 @@ class BoardGame extends React.Component {
                 <div className="detail">
                     <span>{this.props.name}</span>
                     <br/>
-                    <Rating gameId={this.props.gameId} onNewRating={this.props.onNewRating}/>
+                    <Rating gameId={this.props.gameId} onNewRating={this.props.onNewRating} rating={this.props.rating}/>
                 </div>
             </div>
         )
