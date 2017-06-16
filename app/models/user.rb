@@ -16,4 +16,18 @@ class User < ActiveRecord::Base
   def self.generate_temporary
     User.create!(name: 'Guest', email: SecureRandom.hex(30))
   end
+
+  def merge_and_delete(temporary_user)
+    UserGameRating.where(user_id: temporary_user.id).each do |ugr|
+      begin
+        ugr.update(user_id: self.id)
+      rescue
+      end
+    end
+
+    # TODO FIXME throw away all the duplcates
+    UserGameRating.where(user_id: temporary_user.id).destroy_all
+
+    temporary_user.destroy
+  end
 end

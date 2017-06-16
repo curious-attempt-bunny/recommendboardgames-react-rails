@@ -1,6 +1,9 @@
 raw = `grep -E '/boardgame/[0-9]{2,}' data/bgg-index-page*.html`.lines
 games = raw.map { |line| line.match(/"\/boardgame\/([0-9]{2,}+)\/[^"]*/)[1] }
 
+interval = 60
+interval = ARGV[0].to_i if ARGV[0].to_i > 0
+
 games.each do |gameId|
     filename = "data/bgg-game-#{gameId}.html"
     next if File.exists?(filename)
@@ -13,5 +16,5 @@ games.each do |gameId|
     # puts response
 
     File.write(filename, response)
-    sleep(60)
+    sleep(interval)
 end
