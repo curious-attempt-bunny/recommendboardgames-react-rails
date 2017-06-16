@@ -11,5 +11,7 @@ class CreateUserGameRatings < ActiveRecord::Migration
       t.index :game_id
       t.index :rating
     end
+
+    add_index :user_game_ratings, [:user_id, :game_id], :unique => true
   end
 end

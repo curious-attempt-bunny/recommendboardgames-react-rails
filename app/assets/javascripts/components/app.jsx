@@ -1,4 +1,12 @@
 class App extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            ratingCount: 0
+        }
+    }
+
     renderAuthButton() {
         const { current_user } = this.props
 
@@ -36,6 +44,7 @@ class App extends React.Component {
         </div>
         <div id="navbar" className="navbar-collapse collapse">
           { this.renderAuthButton() }
+          { this.renderRatingCount() }
         </div>
       </div>
     </nav>
@@ -68,8 +77,25 @@ class App extends React.Component {
                 name={game.name}
                 image={game.image_medium}
                 imageFallback={game.image_small}
+                onNewRating={() => this.onNewRating()}
                 />
         )
+    }
+
+    renderRatingCount() {
+        return (
+            <div className={ 'navbar-form navbar-right ' + (this.state.emphasizeRatingCount ? 'highlightChange' : '') } style={{color: '#c0c000', fontSize: '1.5em'}}>
+                { this.state.ratingCount }&nbsp;
+                <span className="star"/>
+            </div>
+        )
+    }
+
+    onNewRating() {
+        this.setState({ratingCount: this.state.ratingCount + 1, emphasizeRatingCount: true})
+        setTimeout(() => {
+            this.setState({emphasizeRatingCount: false})
+        }, 500)
     }
 }
 

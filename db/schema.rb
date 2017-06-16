@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170615173405) do
 
   add_index "user_game_ratings", ["game_id"], name: "index_user_game_ratings_on_game_id", using: :btree
   add_index "user_game_ratings", ["rating"], name: "index_user_game_ratings_on_rating", using: :btree
+  add_index "user_game_ratings", ["user_id", "game_id"], name: "index_user_game_ratings_on_user_id_and_game_id", unique: true, using: :btree
   add_index "user_game_ratings", ["user_id"], name: "index_user_game_ratings_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|

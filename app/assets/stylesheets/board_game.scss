@@ -88,4 +88,21 @@
     bottom: 0.25em;
 }
 
+.star:before {
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+    font-family: FontAwesome;
+    content: "\f005";
+}
 
+.highlightChange {
+    animation: blur .75s ease-out;
+    text-shadow: 0px 0px 2px #fff;
+} 
+
+@keyframes blur {
+    from {
+        text-shadow: 0px -5px 40px;
+    }
+}
